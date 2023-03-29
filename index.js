@@ -16,9 +16,21 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(text) {
+  
+// var path = require('path');
+
+// var filename = path.basename(text);
+
+let pathSplit= text.split("/");
+let dosyaAdi = pathSplit[pathSplit.length-1];
+
+
+return dosyaAdi;
 }
+
+console.log('Gorev 1 Dosya Adini Bul - ',dosyaAdiniBul('C:/Users/johnsmith/Music/Beethoven_5.mp3'));
+
 
 /*
   GÖREV 2
@@ -38,9 +50,18 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(numArray) {
+  
+  let hesap;
+  if(numArray.length===0){
+    hesap = null;
+  } else{
+    hesap = numArray.reduce((total,num)=>{
+    return total+num;},0)/numArray.length
+  }
+return hesap;
 }
+console.log('Gorev 2 Ortalama Bul - ',ortalamaBul([50, -26, 153, 7]))
 
 /*
   GÖREV 3
@@ -62,9 +83,21 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(numArr,functionCb) {
+  
+  let ortalama = functionCb(numArr);
+  let ortalamadanBuyukNum;
+  if(numArr.length===0){
+    ortalamadanBuyukNum = null;
+  }else{
+    ortalamadanBuyukNum = numArr.filter(ortalamaBuyuk =>
+    ortalamaBuyuk>ortalama);
+  }
+return ortalamadanBuyukNum;
 }
+
+console.log('Gorev 3 Ortalamadan Buyukleri Bul -',ortalamadanBuyukleriBul([50, -26, 153, 7],ortalamaBul));
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
