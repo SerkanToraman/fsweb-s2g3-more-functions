@@ -89,7 +89,10 @@ function ortalamadanBuyukleriBul(numArr,functionCb) {
   let ortalamadanBuyukNum;
   if(numArr.length===0){
     ortalamadanBuyukNum = null;
-  }else{
+  }else if(numArr.length===1){
+    ortalamadanBuyukNum = numArr;
+  }
+  else{
     ortalamadanBuyukNum = numArr.filter(ortalamaBuyuk =>
     ortalamaBuyuk>ortalama);
   }
